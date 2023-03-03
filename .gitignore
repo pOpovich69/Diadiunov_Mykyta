@@ -1,5 +1,5 @@
-*.class
 doc
+*.class
 target/
 *.iml
 .idea/*
