@@ -11,7 +11,7 @@ public class Calculator {
     private double Side;
     private double BaseSide;
     private Storage storage;
-    private Data data;
+    private History history;
 
 
     /**
@@ -21,9 +21,8 @@ public class Calculator {
      * @throws   Exception
      */
     public Calculator() throws Exception{
-
         storage = new Storage();
-        data = (Data)storage.Load(new Data());
+        history = (History) storage.Load(new History());
     }
     /**
      *
@@ -32,19 +31,16 @@ public class Calculator {
      * @return int
      * @throws   IOException
      */
-    public int CountOnesInBinary() throws IOException {
-
-        data.SetLastSide(this.Side);
-        data.SetLastBaseSide(this.BaseSide);
+    public int CountOnesInBinary() throws Exception {
         String numberInBinary = NumberInBinary((int)SumOfPerimeters());
         char[] c = numberInBinary.toCharArray();
+        count = 0;
         for(int i = 0; i < c.length; i++){
             if(c[i] =='1'){
                 count++;
             }
         }
-        data.SetLastCount(count);
-        storage.Save(data);
+        SaveAll();
         return count;
     }
     /**
@@ -52,10 +48,11 @@ public class Calculator {
      * Show all info
      *
      */
-    public void ShowInfo(){
-
-        data.ShowInfo();
-        System.out.println("/--------------------------------------------------------------------------------------------------/");
+    public void ShowHistory(){
+        history.ViewHistory();
+    }
+    public void ShowLastDataInHistory(){
+        history.ShowLastDataInHistory();
     }
     /**
      *
@@ -79,6 +76,10 @@ public class Calculator {
             }
         }
     }
+    private void SaveAll() throws Exception{
+        history.dataHistory.add(new Data(this.Side,this.BaseSide,InitializeTrianglePerimeter(),InitializeRectanglePerimeter(),SumOfPerimeters(),count));
+        storage.Save(history);
+    }
     /**
      *
      * Sum of perimeters
@@ -87,7 +88,6 @@ public class Calculator {
      */
     private double SumOfPerimeters(){
         double result = InitializeRectanglePerimeter() + InitializeTrianglePerimeter();
-        data.SetLastSumOfPerimeters(result);
         return result;
     }
 
@@ -113,7 +113,6 @@ public class Calculator {
      */
     private double InitializeTrianglePerimeter(){
         double result = ((this.Side * 2) + this.BaseSide);
-        data.SetLastTrianglePerimeter(result);
         return result;
     }
 
@@ -125,7 +124,6 @@ public class Calculator {
      */
     private double InitializeRectanglePerimeter(){
         double result = ((this.Side * 2) + (this.BaseSide * 2));
-        data.SetLastRectanglePerimeter(result);
         return result;
     }
 }

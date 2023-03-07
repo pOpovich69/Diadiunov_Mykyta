@@ -1,13 +1,25 @@
 package Task02;
 
+import Task02.Interfaces.IData;
+
 import java.io.Serializable;
 
 
 /**
  * The class Data implements serializable
  */
-public class Data  implements Serializable {
+public class Data  implements Serializable, IData {
     private double lastSide;
+
+    public Data(double lastSide, double lastBaseSide, double lastTrianglePerimeter, double lastRectanglePerimeter, double lastSumOfPerimeters, int lastCount) {
+        this.lastSide = lastSide;
+        this.lastBaseSide = lastBaseSide;
+        this.lastTrianglePerimeter = lastTrianglePerimeter;
+        this.lastRectanglePerimeter = lastRectanglePerimeter;
+        this.lastSumOfPerimeters = lastSumOfPerimeters;
+        this.lastCount = lastCount;
+    }
+
     private double lastBaseSide;
     private double lastTrianglePerimeter;
     private double lastRectanglePerimeter;

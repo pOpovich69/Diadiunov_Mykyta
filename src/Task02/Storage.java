@@ -18,7 +18,7 @@ public class Storage{
      * @param savedData  the saved data
      * @throws   IOException
      */
-    public void Save(Data savedData) throws IOException {
+    public void Save(History savedData) throws IOException {
 
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file));
         outputStream.writeObject(savedData);
@@ -33,7 +33,7 @@ public class Storage{
      * @return Object
      * @throws   Exception
      */
-    public Object Load(Data savedDataByDefault) throws Exception{
+    public Object Load(History savedDataByDefault) throws Exception{
 
         if(file.exists()){
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file));
