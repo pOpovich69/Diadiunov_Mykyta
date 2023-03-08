@@ -24,6 +24,9 @@ public class Calculator {
         storage = new Storage();
         history = (History) storage.Load(new History());
     }
+    public int MethodForTest(){
+        return history.MethodForTest();
+    }
     /**
      *
      * Count ones in binary
@@ -48,8 +51,11 @@ public class Calculator {
      * Show all info
      *
      */
-    public void ShowHistory(){
+    public void ViewHistory(){
         history.ViewHistory();
+    }
+    public void ViewHistory(int index){
+        history.ViewHistory(index);
     }
     public void ShowLastDataInHistory(){
         history.ShowLastDataInHistory();
@@ -80,16 +86,6 @@ public class Calculator {
         history.dataHistory.add(new Data(this.Side,this.BaseSide,InitializeTrianglePerimeter(),InitializeRectanglePerimeter(),SumOfPerimeters(),count));
         storage.Save(history);
     }
-    /**
-     *
-     * Sum of perimeters
-     *
-     * @return double
-     */
-    private double SumOfPerimeters(){
-        double result = InitializeRectanglePerimeter() + InitializeTrianglePerimeter();
-        return result;
-    }
 
     /**
      *
@@ -104,7 +100,16 @@ public class Calculator {
         String str = String.format("%8s", Integer.toBinaryString(i)).replaceAll(" ", "0");
         return str;
     }
-
+    /**
+     *
+     * Sum of perimeters
+     *
+     * @return double
+     */
+    private double SumOfPerimeters(){
+        double result = InitializeRectanglePerimeter() + InitializeTrianglePerimeter();
+        return result;
+    }
     /**
      *
      * Initialize triangle perimeter

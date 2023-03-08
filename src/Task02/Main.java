@@ -15,7 +15,9 @@ public class Main {
      * @param args the args
      */
     public static void main(String[] args) {
-
+        Main();
+    }
+    private static void Main(){
         int answer = 0;
         try {
             cl = new Calculator();
@@ -52,7 +54,18 @@ public class Main {
         System.out.println("Кількість 1 у двійковому поданні цілої частини значення суми периметрів: " + cl.CountOnesInBinary());
     }
     private static void ViewHistory(){
-        cl.ShowHistory();
+        System.out.println("1) Подивитись історію розмірів сторони у основи\n2) Подивитись історію розмірів основи\n3) Подивитись історію периметрів трикутників\n4) Подивитись історію периметрів прямокутників\n5) Подивитись історію суми периметрів\n6) Подивитись історію суми периметрів\n7) Подивитись історію всіх даних\nВедіть 0 якщо хочете вийти\n");
+        System.out.print("Ведіть вашу відповідь: ");
+        int answer = in.nextInt();
+        if(answer > 6){
+            cl.ViewHistory();
+        }
+        else if(answer == 0){
+            return;
+        }
+        else{
+            cl.ViewHistory(answer);
+        }
     }
     private static void ViewLastInHistory(){
         cl.ShowLastDataInHistory();

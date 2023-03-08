@@ -6,10 +6,15 @@ import java.io.Serializable;
 
 
 /**
- * The class Data implements serializable
+ * The class Data implements serializable and IData
  */
 public class Data  implements Serializable, IData {
     private double lastSide;
+    private double lastBaseSide;
+    private double lastTrianglePerimeter;
+    private double lastRectanglePerimeter;
+    private double lastSumOfPerimeters;
+    private int lastCount;
 
     public Data(double lastSide, double lastBaseSide, double lastTrianglePerimeter, double lastRectanglePerimeter, double lastSumOfPerimeters, int lastCount) {
         this.lastSide = lastSide;
@@ -19,14 +24,6 @@ public class Data  implements Serializable, IData {
         this.lastSumOfPerimeters = lastSumOfPerimeters;
         this.lastCount = lastCount;
     }
-
-    private double lastBaseSide;
-    private double lastTrianglePerimeter;
-    private double lastRectanglePerimeter;
-    private double lastSumOfPerimeters;
-    private int lastCount;
-
-
     /**
      *
      * Show info
@@ -42,151 +39,54 @@ public class Data  implements Serializable, IData {
         System.out.println("Кількість 1 у двійковому поданні цілої частини значення суми периметрів минулого разу: " + lastCount);
     }
 
+    @Override
+    public void ReturnDataOnIndex(int index){
+        switch (index){
+            case(1):
+                System.out.println("Розмір сторони у основи минулого разу: " + lastSide);
+                break;
+            case(2):
+                System.out.println("Розмір основи минулого разу: " + lastBaseSide);
+                break;
+            case(3):
+                System.out.println("Периметр трикотника минулого разу: " + lastTrianglePerimeter);
+                break;
+            case(4):
+                System.out.println("Периметр прямокутника минулого разу: " + lastRectanglePerimeter);
+                break;
+            case(5):
+                System.out.println("Сума периметрів минулого разу: " + lastSumOfPerimeters);
+                break;
+            case(6):
+                System.out.println("Кількість 1 у двійковому поданні цілої частини значення суми периметрів минулого разу: " + lastCount);
+                break;
+            default:
+                System.out.println("Index out of the range!");
+                break;
+        }
+    }
 
-    /**
-     *
-     * Get last side
-     *
-     * @return double
-     */
-    public double GetLastSide() {
-
+    public double getLastSide() {
         return lastSide;
     }
 
-    /**
-     *
-     * Set last side
-     *
-     * @param lastSide  the last side
-     */
-    public void SetLastSide(double lastSide) {
-
-        if(lastSide > 0){
-            this.lastSide = lastSide;
-        }
-    }
-
-    /**
-     *
-     * Get last base side
-     *
-     * @return double
-     */
-    public double GetLastBaseSide() {
-
+    public double getLastBaseSide() {
         return lastBaseSide;
     }
 
-    /**
-     *
-     * Set last base side
-     *
-     * @param lastBaseSide  the last base side
-     */
-    public void SetLastBaseSide(double lastBaseSide) {
-
-        if(lastBaseSide > 0){
-            this.lastBaseSide = lastBaseSide;
-        }
-    }
-
-    /**
-     *
-     * Get last triangle perimeter
-     *
-     * @return double
-     */
-    public double GetLastTrianglePerimeter() {
-
+    public double getLastTrianglePerimeter() {
         return lastTrianglePerimeter;
     }
 
-    /**
-     *
-     * Set last triangle perimeter
-     *
-     * @param lastTrianglePerimeter  the last triangle perimeter
-     */
-    public void SetLastTrianglePerimeter(double lastTrianglePerimeter) {
-
-        if(lastTrianglePerimeter > 0){
-            this.lastTrianglePerimeter = lastTrianglePerimeter;
-        }
-
-    }
-
-    /**
-     *
-     * Get last rectangle perimeter
-     *
-     * @return double
-     */
-    public double GetLastRectanglePerimeter() {
-
+    public double getLastRectanglePerimeter() {
         return lastRectanglePerimeter;
     }
 
-
-    /**
-     *
-     * Set last rectangle perimeter
-     *
-     * @param lastRectanglePerimeter  the last rectangle perimeter
-     */
-    public void SetLastRectanglePerimeter(double lastRectanglePerimeter) {
-
-        if(lastRectanglePerimeter > 0){
-            this.lastRectanglePerimeter = lastRectanglePerimeter;
-        }
-    }
-
-    /**
-     *
-     * Get last sum of perimeters
-     *
-     * @return double
-     */
-    public double GetLastSumOfPerimeters() {
-
+    public double getLastSumOfPerimeters() {
         return lastSumOfPerimeters;
     }
 
-
-    /**
-     *
-     * Set last sum of perimeters
-     *
-     * @param lastSumOfPerimeters  the last sum of perimeters
-     */
-    public void SetLastSumOfPerimeters(double lastSumOfPerimeters) {
-
-        if(lastSumOfPerimeters > 0){
-            this.lastSumOfPerimeters = lastSumOfPerimeters;
-        }
-    }
-
-    /**
-     *
-     * Get last count
-     *
-     * @return int
-     */
-    public int GetLastCount() {
-
+    public int getLastCount() {
         return lastCount;
-    }
-
-    /**
-     *
-     * Set last count
-     *
-     * @param lastCount  the last count
-     */
-    public void SetLastCount(int lastCount) {
-
-        if(lastCount > 0){
-            this.lastCount = lastCount;
-        }
     }
 }

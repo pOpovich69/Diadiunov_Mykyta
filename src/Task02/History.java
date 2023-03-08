@@ -21,4 +21,13 @@ public class History implements Serializable {
             System.out.println("/------------------------------------------------------------------/");
         }
     }
+    public void ViewHistory(int index){
+        for (var item: dataHistory){
+             item.ReturnDataOnIndex(index);
+             System.out.println("/------------------------------------------------------------------/");
+        }
+    }
+    public int MethodForTest(){
+        return dataHistory.size();
+    }
 }
