@@ -15,6 +15,10 @@ public class History implements Serializable {
             dataHistory.get(dataHistory.size()-1).ShowInfo();
             System.out.println("/------------------------------------------------------------------/");
     }
+    public void ShowLastDataInHistory(int index){
+        dataHistory.get(dataHistory.size()-1).ShowInfo();
+        System.out.println("/------------------------------------------------------------------/");
+    }
     public void ViewHistory(){
         for (var item: dataHistory){
             item.ShowInfo();

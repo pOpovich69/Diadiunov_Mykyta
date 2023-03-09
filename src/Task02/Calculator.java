@@ -48,20 +48,6 @@ public class Calculator {
     }
     /**
      *
-     * Show all info
-     *
-     */
-    public void ViewHistory(){
-        history.ViewHistory();
-    }
-    public void ViewHistory(int index){
-        history.ViewHistory(index);
-    }
-    public void ShowLastDataInHistory(){
-        history.ShowLastDataInHistory();
-    }
-    /**
-     *
      * Set side and base side
      *
      * @param side  the side
