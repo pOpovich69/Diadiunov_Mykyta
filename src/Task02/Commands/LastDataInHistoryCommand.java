@@ -24,13 +24,13 @@ public class LastDataInHistoryCommand implements ICommand {
         System.out.print("Ведіть вашу відповідь: ");
         int answer = in.nextInt();
         if(answer > 6){
-            history.ViewHistory(answer);
+            history.ShowLastDataInHistory();
         }
-        else if(answer == 0){
+        else if(answer <= 0){
             return;
         }
         else{
-            history.ViewHistory(answer);
+            history.ShowLastDataInHistory(answer);
         }
     }
 }

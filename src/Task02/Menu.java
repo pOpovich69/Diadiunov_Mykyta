@@ -5,8 +5,6 @@ import Task02.Commands.HistoryCommand;
 import Task02.Commands.LastDataInHistoryCommand;
 import Task02.Interfaces.ICommand;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,7 +14,7 @@ public class Menu{
     private ArrayList<ICommand> commands;
     private static Menu menu;
 
-    public Menu(){
+    private Menu(){
         commands = new ArrayList<ICommand>();
         try {
             commands.add(new CalculatorCommand());

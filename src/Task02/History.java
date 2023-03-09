@@ -16,7 +16,7 @@ public class History implements Serializable {
             System.out.println("/------------------------------------------------------------------/");
     }
     public void ShowLastDataInHistory(int index){
-        dataHistory.get(dataHistory.size()-1).ShowInfo();
+        dataHistory.get(dataHistory.size()-1).ReturnDataOnIndex(index);
         System.out.println("/------------------------------------------------------------------/");
     }
     public void ViewHistory(){

@@ -26,7 +26,7 @@ public class HistoryCommand implements ICommand {
         if(answer > 6){
             history.ViewHistory();
         }
-        else if(answer == 0){
+        else if(answer <= 0){
             return;
         }
         else{
