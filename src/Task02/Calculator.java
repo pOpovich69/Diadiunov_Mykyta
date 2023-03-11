@@ -1,5 +1,7 @@
 package Task02;
 
+import Task03.History;
+
 import java.io.IOException;
 
 
@@ -10,8 +12,9 @@ public class Calculator {
     private int count;
     private double Side;
     private double BaseSide;
-    private Storage storage;
+
     private History history;
+    private Storage storage;
 
 
     /**
@@ -20,9 +23,9 @@ public class Calculator {
      *
      * @throws   Exception
      */
-    public Calculator() throws Exception{
+    public Calculator(History history) throws Exception{
         storage = new Storage();
-        history = (History) storage.Load(new History());
+        this.history = history;
     }
     public int MethodForTest(){
         return history.MethodForTest();

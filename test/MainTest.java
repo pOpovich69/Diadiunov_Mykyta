@@ -1,4 +1,5 @@
 import Task02.Calculator;
+import Task03.History;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import junit.framework.Assert;
@@ -8,7 +9,7 @@ public class MainTest {
     @Test
     public void Test(){
         try {
-            cl = new Calculator();
+            cl = new Calculator(new History());
 
             assertEquals(0, cl.MethodForTest());
 

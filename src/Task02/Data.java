@@ -1,6 +1,5 @@
 package Task02;
 
-import Task02.Interfaces.IData;
 
 import java.io.Serializable;
 
@@ -8,7 +7,7 @@ import java.io.Serializable;
 /**
  * The class Data implements serializable and IData
  */
-public class Data  implements Serializable, IData {
+public class Data  implements Serializable {
     private double lastSide;
     private double lastBaseSide;
     private double lastTrianglePerimeter;
@@ -24,52 +23,27 @@ public class Data  implements Serializable, IData {
         this.lastSumOfPerimeters = lastSumOfPerimeters;
         this.lastCount = lastCount;
     }
-    /**
-     *
-     * Show info
-     *
-     */
-    public void ShowInfo(){
-
-        System.out.println("Розмір сторони у основи минулого разу: " + lastSide);
-        System.out.println("Розмір основи минулого разу: " + lastBaseSide);
-        System.out.println("Периметр трикотника минулого разу: " + lastTrianglePerimeter);
-        System.out.println("Периметр прямокутника минулого разу: " + lastRectanglePerimeter);
-        System.out.println("Сума периметрів минулого разу: " + lastSumOfPerimeters);
-        System.out.println("Кількість 1 у двійковому поданні цілої частини значення суми периметрів минулого разу: " + lastCount);
-    }
-
-    @Override
-    public void ReturnDataOnIndex(int index){
+    public String ReturnDataOnIndex(int index) throws Exception{
         switch (index){
             case(1):
-                System.out.println("Розмір сторони у основи минулого разу: " + lastSide);
-                break;
+               return "Розмір сторони у основи: " + lastSide;
             case(2):
-                System.out.println("Розмір основи минулого разу: " + lastBaseSide);
-                break;
+                return "Розмір основи: " + lastBaseSide;
             case(3):
-                System.out.println("Периметр трикотника минулого разу: " + lastTrianglePerimeter);
-                break;
+                return "Периметр трикутника: " + lastTrianglePerimeter;
             case(4):
-                System.out.println("Периметр прямокутника минулого разу: " + lastRectanglePerimeter);
-                break;
+                return "Периметр прямокутника: " + lastRectanglePerimeter;
             case(5):
-                System.out.println("Сума периметрів минулого разу: " + lastSumOfPerimeters);
-                break;
+                return "Сума периметрів: " + lastSumOfPerimeters;
             case(6):
-                System.out.println("Кількість 1 у двійковому поданні цілої частини значення суми периметрів минулого разу: " + lastCount);
-                break;
+                return "Кількість 1 у двійковому поданні цілої частини значення суми периметрів: " + lastCount;
             default:
-                System.out.println("Index out of the range!");
-                break;
+                throw new Exception("Error!");
         }
     }
-
     public double getLastSide() {
         return lastSide;
     }
-
     public double getLastBaseSide() {
         return lastBaseSide;
     }

@@ -1,6 +1,7 @@
 package Task02;
 
-import java.io.Console;
+import Task05.Menu;
+
 import java.util.Scanner;
 
 

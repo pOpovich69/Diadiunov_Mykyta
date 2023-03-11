@@ -1,4 +1,4 @@
-package Task02.Interfaces;
+package Task05;
 
 import java.awt.event.KeyEvent;
 import java.util.Scanner;
